@@ -20,7 +20,7 @@ class DataValidator {
 	* @access public
 	* @param PDO $conn PDO connection
 	*/
-	public function set_pdo_connection($conn) {
+	public function set_connection($conn) {
 		$this->_db = $conn;
 	}
 
