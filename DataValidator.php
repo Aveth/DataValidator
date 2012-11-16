@@ -28,8 +28,8 @@ class DataValidator {
 	* Set values to validate.
 	*
 	* @access public
-	* @param mixed $field 	If array is given, this will set all values. If string, will be used as a key for $value.
-	* @param mixed $value 	Must be provided if string is given for field.
+	* @param mixed $field  If array is given, this will set all values. If string, will be used as a key for $value.
+	* @param mixed $value  Must be provided if string is given for field.
 	*/
 	public function set_values($field, $value = null) {
 		if ( is_array($field) ) {  //if is array, then overwrite the entire array
@@ -43,9 +43,9 @@ class DataValidator {
 	* Set rules to validate against.
 	*
 	* @access public
-	* @param mixed $field 	If array is given, this will set all rules. If string, will be used as a key for $value.
-	* 						Must be a valid validation function.
-	* @param mixed $value 	Must be provided if string is given for field.
+	* @param mixed $field  If array is given, this will set all rules. If string, will be used as a key for $value.
+	* Must be a valid validation function.
+	* @param mixed $value  Must be provided if string is given for field.
 	*/
 	public function set_rules($field, $value = null) {
 		if ( is_array($field) ) {  //if is array, then overwrite the entire array
@@ -59,8 +59,8 @@ class DataValidator {
 	* Run validation.
 	*
 	* @access public
-	* @param array $values 	Must be provided if values to validate have not been set in set_values
-	* @return bool 			TRUE if no values are invalid, otherwise FALSE
+	* @param array $values  Must be provided if values to validate have not been set in set_values
+	* @return bool  TRUE if no values are invalid, otherwise FALSE
 	*/
 	public function validate($values = null) {
 		if ( isset($values) ) $this->_values = $values;
@@ -119,9 +119,9 @@ class DataValidator {
 	* Retrieve all error messages.
 	* 
 	* @access public
-	* @param string $wrapper 	Wrap error messages in a valid HTML element. Token %s will be replaced by message.
-	* @return mixed 			If $wrapper is provided, returns string of messages wrapped in HTML elements.
-	* 							If $wrapper is not provided, returns array of messages.
+	* @param string $wrapper  Wrap error messages in a valid HTML element. Token %s will be replaced by message.
+	* @return mixed  If $wrapper is provided, returns string of messages wrapped in HTML elements.
+	* If $wrapper is not provided, returns array of messages.
 	*/
 	public function get_errors($wrapper = null) {
 		if ( !isset($wrapper) ) return $this->_errors;  //if no wrapper, just return the array
