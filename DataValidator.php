@@ -114,6 +114,10 @@ class DataValidator {
 			}
 		} 
 	}
+	
+	public function add_error($key, $message) {
+		$this->_errors[$key] = $message;
+	}
 
 	/**
 	* Retrieve all error messages.
@@ -132,6 +136,10 @@ class DataValidator {
 		}
 
 		return $errors; 
+	}
+	
+	public function error_exists($key) {
+		return array_key_exists($key, $this->_errors);
 	}
 
 	public function is_required($value) {
