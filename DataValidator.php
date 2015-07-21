@@ -212,7 +212,7 @@ class DataValidator {
 		list($table, $field) = explode('.', $field);
 
 		$cmd = $this->_db->prepare('SELECT '.$field.' FROM '.$table.' WHERE '.$field.' = ?');
-		$cmd->execute($value);
+		$cmd->execute(array($value));
 		$results = $cmd->fetchAll(PDO::FETCH_ASSOC);
 
 		return empty($results);
@@ -235,7 +235,7 @@ class DataValidator {
 
 	public function is_min_length($value, $length) {
 		$this->_message = 'The %s field must be at least '.$length.' characters.';
-		return !(strlen($value) <= $length);
+		return !(strlen($value) < $length)
 	}
 
 	public function is_max_length($value, $length) {
